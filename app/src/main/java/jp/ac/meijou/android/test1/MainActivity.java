@@ -16,6 +16,7 @@ import jp.ac.meijou.android.test1.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private PrefDataStore prefDataStore;
 
 
     @Override
@@ -30,28 +31,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        prefDataStore = PrefDataStore.getInstance(this);
+        binding.savebutton.setOnClickListener((view) -> {
+            var text = binding.editTextText.getText().toString();
+            prefDataStore.setString("name" , text);
+        });
+
+
         binding.text.setText(R.string.text1);
-        binding.button.setOnClickListener(View ->{
+        binding.button.setOnClickListener(View -> {
             var text = binding.editTextText.getText().toString();
             binding.text.setText(text);
         });
-
-        binding.editTextText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                binding.text.setText(s.toString());
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-        });
-
+        prefDataStore.getString("name")
+                .ifPresent(name -> binding.text.setText(name));
     }
 }
