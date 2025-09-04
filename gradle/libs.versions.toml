@@ -10,6 +10,8 @@ constraintlayout = "2.2.1"
 desugerJdkLibs = "2.0.4"
 datastore = "1.1.7"
 datastorePreferencesRxjava2 = "1.1.7"
+okhttp = "5.1.0"
+moshi = "1.15.2"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,6 +25,8 @@ desuger-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", ver
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 datastore-preferences-rxjava3 = { group = "androidx.datastore", name = "datastore-preferences-rxjava3", version.ref = "datastore" }
 datastore-preferences-rxjava2 = { group = "androidx.datastore", name = "datastore-preferences-rxjava2", version.ref = "datastorePreferencesRxjava2" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
